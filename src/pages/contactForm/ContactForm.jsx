@@ -25,13 +25,16 @@ const Query = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending....");
-    let response = await fetch("http://localhost:4001/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formDetails),
-    });
+    let response = await fetch(
+      "https://ankurbackend.onrender.com/api/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDetails),
+      }
+    );
     let result = await response.json();
     setButtonText("Send");
     setFormDetails(formInitialDetails);
