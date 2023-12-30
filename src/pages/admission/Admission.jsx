@@ -196,40 +196,43 @@ const Admission = () => {
     } else if (locphone == "") {
       toast.error("locphone is required");
     } else {
-      const response = await fetch("http://localhost:4001/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fname,
-          mName,
-          lname,
-          date,
-          aClass,
-          tounge,
-          religion,
-          Aadhar,
-          category,
-          ffname,
-          flname,
-          fqualification,
-          foccupation,
-          fphone,
-          frAadhar,
-          mfname,
-          mlname,
-          mqulification,
-          moccupation,
-          mphone,
-          mAadhar,
-          locname,
-          loclname,
-          locphone,
-          caddress,
-          paddress,
-        }),
-      });
+      const response = await fetch(
+        "https://ankurbackend.onrender.com/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fname,
+            mName,
+            lname,
+            date,
+            aClass,
+            tounge,
+            religion,
+            Aadhar,
+            category,
+            ffname,
+            flname,
+            fqualification,
+            foccupation,
+            fphone,
+            frAadhar,
+            mfname,
+            mlname,
+            mqulification,
+            moccupation,
+            mphone,
+            mAadhar,
+            locname,
+            loclname,
+            locphone,
+            caddress,
+            paddress,
+          }),
+        }
+      );
       const datas = await response.json();
       console.log(datas);
       if (datas.status == 201) {
@@ -300,7 +303,9 @@ const Admission = () => {
               <p>Reg. Date:___/____/____</p>
               <p>Fee:____Receipt:_____</p>
             </div>
-            <div className={styles.SchRegname}><h2> ADMISSION FROM</h2></div>
+            <div className={styles.SchRegname}>
+              <h2> ADMISSION FROM</h2>
+            </div>
           </div>
           <div className={styles.SchHeader}>Registration From</div>
           <div className={styles.form}>
